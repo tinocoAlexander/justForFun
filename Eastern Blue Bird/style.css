@@ -1,0 +1,80 @@
+/* Tailwind CSS customization */
+:root {
+    --primary-dark: #2d4140;
+    --primary-medium: #888a7c;
+    --primary-light: #edf8f0;
+    --secondary-light: #bddae0;
+    --secondary-dark: #89b4c5;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-light);
+}
+
+.bg-primary-dark {
+    background-color: var(--primary-dark);
+}
+
+.text-primary-dark {
+    color: var(--primary-dark);
+}
+
+.bg-primary-medium {
+    background-color: var(--primary-medium);
+}
+
+.text-primary-medium {
+    color: var(--primary-medium);
+}
+
+.bg-primary-light {
+    background-color: var(--primary-light);
+}
+
+.text-primary-light {
+    color: var(--primary-light);
+}
+
+.bg-secondary-light {
+    background-color: var(--secondary-light);
+}
+
+.text-secondary-light {
+    color: var(--secondary-light);
+}
+
+.bg-secondary-dark {
+    background-color: var(--secondary-dark);
+}
+
+.text-secondary-dark {
+    color: var(--secondary-dark);
+}
+
+.review {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.review img {
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.stars {
+    color: #ffd700;
+}

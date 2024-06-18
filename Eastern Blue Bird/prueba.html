@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eastern Blue Bird LLC - Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .custom-font {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-style: italic;
+    }
+    .content-font {
+      font-family: 'Crimson Text', serif;
+      font-weight: 600;
+      font-style: italic;
+    }
+    .circle-image {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+    .star {
+      color: #5A7E8C;
+      text-align: center;
+    }
+    .review-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .service-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      transition: left 0.5s ease;
+    }
+    .carousel img.active {
+      left: 0;
+    }
+    .carousel img.next {
+      left: 100%;
+    }
+    .carousel img.prev {
+      left: -100%;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+    .carousel-controls button {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const carousels = document.querySelectorAll('.carousel');
+      carousels.forEach(carousel => {
+        const images = carousel.querySelectorAll('img');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+          images.forEach((img, i) => {
+            img.classList.remove('active', 'next', 'prev');
+            if (i === index) {
+              img.classList.add('active');
+            } else if (i === (index + 1) % images.length) {
+              img.classList.add('next');
+            } else if (i === (index - 1 + images.length) % images.length) {
+              img.classList.add('prev');
+            }
+          });
+        }
+
+        showSlide(currentIndex);
+
+        carousel.querySelector('.next').addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % images.length;
+          showSlide(currentIndex);
+        });
+
+        carousel.querySelector('.prev').addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          showSlide(currentIndex);
+        });
+      });
+    });
+  </script>
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="bg-gray-800 text-white py-4 custom-font fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="flex space-x-1">
+        <div class="w-3 h-3" style="background-color: #5A7E8C; border-radius: 50%;"></div>
+        <div class="w-3 h-3 bg-white rounded-full"></div>
+        <div class="w-3 h-3 bg-white rounded-full"></div>
+      </div>
+      <nav class="flex space-x-4">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="services.html" class="hover:text-blue-400">Services</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+      <div></div> <!-- Placeholder for right alignment -->
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="container mx-auto py-8 px-4 content-font mt-20">
+    <h2 class="text-2xl font-bold text-center mb-6">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="service-card">
+        <div class="carousel">
+          <img src="images/image1.jpeg" alt="Mulching" class="active">
+          <img src="images/image2.jpeg" alt="Mulching">
+          <img src="images/image3.jpeg" alt="Mulching">
+          <img src="images/image4.jpeg" alt="Mulching">
+          <img src="images/image5.jpeg" alt="Mulching">
+          <div class="carousel-controls">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+          </div>
+        </div>
+        <h3>Mulching</h3>
+        <p>High-quality mulching services to keep your garden healthy and beautiful.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel">
+          <img src="images/image1.jpeg" alt="Power Washing" class="active">
+          <img src="images/image2.jpeg" alt="Power Washing">
+          <img src="images/image3.jpeg" alt="Power Washing">
+          <img src="images/image4.jpeg" alt="Power Washing">
+          <img src="images/image5.jpeg" alt="Power Washing">
+          <div class="carousel-controls">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+          </div>
+        </div>
+        <h3>Power Washing</h3>
+        <p>Professional power washing services to make your surfaces spotless.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel">
+          <img src="images/image1.jpeg" alt="Bricklaying" class="active">
+          <img src="images/image2.jpeg" alt="Bricklaying">
+          <img src="images/image3.jpeg" alt="Bricklaying">
+          <img src="images/image4.jpeg" alt="Bricklaying">
+          <img src="images/image5.jpeg" alt="Bricklaying">
+          <div class="carousel-controls">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+          </div>
+        </div>
+        <h3>Bricklaying</h3>
+        <p>Expert bricklaying services for durable and attractive constructions.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel">
+          <img src="images/image1.jpeg" alt="Decking" class="active">
+          <img src="images/image2.jpeg" alt="Decking">
+          <img src="images/image3.jpeg" alt="Decking">
+          <img src="images/image4.jpeg" alt="Decking">
+          <img src="images/image5.jpeg" alt="Decking">
+          <div class="carousel-controls">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+          </div>
+        </div>
+        <h3>Decking</h3>
+        <p>Beautiful and functional decking solutions for your outdoor space.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel">
+          <img src="images/image1.jpeg" alt="Deck and Patio" class="active">
+          <img src="images/image2.jpeg" alt="Deck and Patio">
+          <img src="images/image3.jpeg" alt="Deck and Patio">
+          <img src="images/image4.jpeg" alt="Deck and Patio">
+          <img src="images/image5.jpeg" alt="Deck and Patio">
+          <div class="carousel-controls">
+            <button class="prev">&lt;</button>
+            <button class="next">&gt;</button>
+          </div>
+        </div>
