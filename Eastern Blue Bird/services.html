@@ -1,53 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" href="images/logo.ico">
-    <link rel="stylesheet" href="styles.css">
-    <title>Eastern Blue Bird LLC - Services</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eastern Blue Bird LLC - Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="images/logo.ico" type="image/x-icon">
+  <style>
+    .custom-font {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-style: italic;
+    }
+    .content-font {
+      font-family: 'Crimson Text', serif;
+      font-weight: 600;
+      font-style: italic;
+    }
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+    .carousel-images img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .carousel-button.prev {
+      left: 10px;
+    }
+    .carousel-button.next {
+      right: 10px;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 font-sans">
-    <header class="bg-gray-700 text-white">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <div class="logo">
-                <img src="images/logo.ico" alt="Eastern Blue Bird LLC" class="h-12 w-12">
-            </div>
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="index.html" class="hover:text-secondary-light no-underline">Home</a></li>
-                    <li><a href="services.html" class="hover:text-secondary-light no-underline">Services</a></li>
-                    <li><a href="about.html" class="hover:text-secondary-light no-underline">About</a></li>
-                </ul>
-            </nav>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="bg-gray-800 text-white py-4 custom-font fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="flex space-x-1">
+        <div class="w-3 h-3" style="background-color: #5A7E8C; border-radius: 50%;"></div>
+        <div class="w-3 h-3 bg-white rounded-full"></div>
+        <div class="w-3 h-3 bg-white rounded-full"></div>
+      </div>
+      <nav class="flex space-x-4">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="#" class="hover:text-blue-400">Services</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+      <div></div> <!-- Placeholder for right alignment -->
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <section class="container mx-auto py-8 px-4 content-font mt-20">
+    <h2 class="text-2xl font-bold text-center mb-6">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="service-card">
+        <div class="carousel-container">
+          <div class="carousel-images">
+            <img src="images/image1.jpeg" alt="Mulching 1">
+            <img src="images/image2.jpeg" alt="Mulching 2">
+            <img src="images/image3.jpeg" alt="Mulching 3">
+            <img src="images/image4.jpeg" alt="Mulching 4">
+            <img src="images/image5.jpeg" alt="Mulching 5">
+          </div>
+          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
         </div>
-    </header>
-    <main class="container mx-auto py-8">
-        <section class="service-details">
-            <h2 class="text-2xl font-bold">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <!-- Service details here -->
-            </div>
-        </section>
-    </main>
-    <footer class="bg-gray-700 text-white mt-8">
-        <div class="container mx-auto p-4 flex justify-between">
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="index.html" class="hover:text-secondary-light no-underline">Home</a></li>
-                    <li><a href="services.html" class="hover:text-secondary-light no-underline">Services</a></li>
-                    <li><a href="about.html" class="hover:text-secondary-light no-underline">About</a></li>
-                </ul>
-            </nav>
-            <div class="contact-info">
-                <p>Phone: (123) 456-7890</p>
-                <p>Email: contact@easternbluebirdllc.com</p>
-            </div>
+        <h3>Mulching</h3>
+        <p>High-quality mulching services to keep your garden healthy and beautiful.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel-container">
+          <div class="carousel-images">
+            <img src="images/image1.jpeg" alt="Power Washing 1">
+            <img src="images/image2.jpeg" alt="Power Washing 2">
+            <img src="images/image3.jpeg" alt="Power Washing 3">
+            <img src="images/image4.jpeg" alt="Power Washing 4">
+            <img src="images/image5.jpeg" alt="Power Washing 5">
+          </div>
+          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
         </div>
-    </footer>
+        <h3>Power Washing</h3>
+        <p>Professional power washing services to make your surfaces spotless.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel-container">
+          <div class="carousel-images">
+            <img src="images/image1.jpeg" alt="Bricklaying 1">
+            <img src="images/image2.jpeg" alt="Bricklaying 2">
+            <img src="images/image3.jpeg" alt="Bricklaying 3">
+            <img src="images/image4.jpeg" alt="Bricklaying 4">
+            <img src="images/image5.jpeg" alt="Bricklaying 5">
+          </div>
+          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+        <h3>Bricklaying</h3>
+        <p>Expert bricklaying services for durable and attractive constructions.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel-container">
+          <div class="carousel-images">
+            <img src="images/image1.jpeg" alt="Decking 1">
+            <img src="images/image2.jpeg" alt="Decking 2">
+            <img src="images/image3.jpeg" alt="Decking 3">
+            <img src="images/image4.jpeg" alt="Decking 4">
+            <img src="images/image5.jpeg" alt="Decking 5">
+          </div>
+          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+        <h3>Decking</h3>
+        <p>Beautiful and functional decking solutions for your outdoor space.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel-container">
+          <div class="carousel-images">
+            <img src="images/image1.jpeg" alt="Deck and Patio 1">
+            <img src="images/image2.jpeg" alt="Deck and Patio 2">
+            <img src="images/image3.jpeg" alt="Deck and Patio 3">
+            <img src="images/image4.jpeg" alt="Deck and Patio 4">
+            <img src="images/image5.jpeg" alt="Deck and Patio 5">
+          </div>
+          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+        <h3>Deck and Patio</h3>
+        <p>Comprehensive deck and patio services to enhance your home's exterior.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel-container">
+          <div class="carousel-images">
+            <img src="images/image1.jpeg" alt="Gates Installation 1">
+            <img src="images/image2.jpeg" alt="Gates Installation 2">
+            <img src="images/image3.jpeg" alt="Gates Installation 3">
+            <img src="images/image4.jpeg" alt="Gates Installation 4">
+            <img src="images/image5.jpeg" alt="Gates Installation 5">
+          </div>
+          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+        <h3>Gates Installation</h3>
+        <p>Reliable gates installation services for your property's safety and appeal.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel-container">
+          <div class="carousel-images">
+            <img src="images/image1.jpeg" alt="Fences 1">
+            <img src="images/image2.jpeg" alt="Fences 2">
+            <img src="images/image3.jpeg" alt="Fences 3">
+            <img src="images/image4.jpeg" alt="Fences 4">
+            <img src="images/image5.jpeg" alt="Fences 5">
+          </div>
+          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+        <h3>Fences</h3>
+        <p>High-quality fencing services for privacy and security.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel-container">
+          <div class="carousel-images">
+            <img src="images/image1.jpeg" alt="Fence Repair 1">
+            <img src="images/image2.jpeg" alt="Fence Repair 2">
+            <img src="images/image3.jpeg" alt="Fence Repair 3">
+            <img src="images/image4.jpeg" alt="Fence Repair 4">
+            <img src="images/image5.jpeg" alt="Fence Repair 5">
+          </div>
+          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+        <h3>Fence Repair</h3>
+        <p>Professional fence repair services to restore your fences to their best condition.</p>
+      </div>
+      <div class="service-card">
+        <div class="carousel-container">
+          <div class="carousel-images">
+            <img src="images/image1.jpeg" alt="Landscape Installation 1">
+            <img src="images/image2.jpeg" alt="Landscape Installation 2">
+            <img src="images/image3.jpeg" alt="Landscape Installation 3">
+            <img src="images/image4.jpeg" alt="Landscape Installation 4">
+            <img src="images/image5.jpeg" alt="Landscape Installation 5">
+          </div>
+          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
+          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
+        </div>
+        <h3>Landscape Installation</h3>
+        <p>Complete landscape installation services to transform your outdoor space.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-4 custom-font">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2024 Eastern Blue Bird LLC. All rights reserved.</p>
+      <div class="flex justify-center space-x-4">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="#" class="hover:text-blue-400">Services</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </div>
+      <div class="flex justify-center space-x-4 mt-4">
+        <a href="https://www.facebook.com/eastern.blue.bird.llc" target="_blank" class="hover:text-blue-400">Facebook</a>
+        <span>|</span>
+        <span>Phone: (123) 456-7890</span>
+        <span>|</span>
+        <span>Email: contact@easternbluebirdllc.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function nextSlide(button) {
+      const container = button.closest('.carousel-container');
+      const images = container.querySelector('.carousel-images');
+      const totalImages = images.children.length;
+      const imageWidth = container.clientWidth;
+      let currentTransform = images.style.transform.replace(/[^\d.]/g, '');
+      currentTransform = currentTransform ? parseInt(currentTransform) : 0;
+      if (currentTransform < (totalImages - 1) * imageWidth) {
+        images.style.transform = `translateX(-${currentTransform + imageWidth}px)`;
+      }
+    }
+
+    function prevSlide(button) {
+      const container = button.closest('.carousel-container');
+      const images = container.querySelector('.carousel-images');
+      const imageWidth = container.clientWidth;
+      let currentTransform = images.style.transform.replace(/[^\d.]/g, '');
+      currentTransform = currentTransform ? parseInt(currentTransform) : 0;
+      if (currentTransform > 0) {
+        images.style.transform = `translateX(-${currentTransform - imageWidth}px)`;
+      }
+    }
+  </script>
 </body>
 </html>
