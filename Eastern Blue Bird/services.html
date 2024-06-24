@@ -54,21 +54,56 @@
     .carousel-button.next {
       right: 10px;
     }
+    .logo-rounded {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+    .nav-link {
+      font-size: 1.25rem;
+    }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let currentIndex = 0;
+      const reviews = document.querySelectorAll('.review-item');
+      const totalReviews = reviews.length;
+
+      function showReviews(index) {
+        reviews.forEach((review, i) => {
+          review.style.display = (i >= index && i < index + 3) ? 'flex' : 'none';
+        });
+      }
+
+      document.getElementById('next').addEventListener('click', function () {
+        if (currentIndex + 3 < totalReviews) {
+          currentIndex += 3;
+          showReviews(currentIndex);
+        }
+      });
+
+      document.getElementById('prev').addEventListener('click', function () {
+        if (currentIndex - 3 >= 0) {
+          currentIndex -= 3;
+          showReviews(currentIndex);
+        }
+      });
+
+      showReviews(currentIndex);
+    });
+  </script>
 </head>
 <body class="bg-gray-100">
   <!-- Header -->
   <header class="bg-gray-800 text-white py-4 custom-font fixed top-0 left-0 w-full z-50">
     <div class="container mx-auto flex justify-between items-center px-4">
-      <div class="flex space-x-1">
-        <div class="w-3 h-3" style="background-color: #5A7E8C; border-radius: 50%;"></div>
-        <div class="w-3 h-3 bg-white rounded-full"></div>
-        <div class="w-3 h-3 bg-white rounded-full"></div>
+      <div class="flex items-center space-x-2">
+        <img src="images/logo.jpg" alt="Logo" class="logo-rounded">
       </div>
-      <nav class="flex space-x-4">
-        <a href="index.html" class="hover:text-blue-400">Home</a>
-        <a href="#" class="hover:text-blue-400">Services</a>
-        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      <nav class="flex space-x-8">
+        <a href="index.html" class="nav-link hover:text-blue-400">Home</a>
+        <a href="#" class="nav-link hover:text-blue-400">Services</a>
+        <a href="contact.html" class="nav-link hover:text-blue-400">Contact</a>
       </nav>
       <div></div> <!-- Placeholder for right alignment -->
     </div>
@@ -96,26 +131,9 @@
       <div class="service-card">
         <div class="carousel-container">
           <div class="carousel-images">
-            <img src="images/image1.jpeg" alt="Power Washing 1">
-            <img src="images/image2.jpeg" alt="Power Washing 2">
-            <img src="images/image3.jpeg" alt="Power Washing 3">
-            <img src="images/image4.jpeg" alt="Power Washing 4">
-            <img src="images/image5.jpeg" alt="Power Washing 5">
-          </div>
-          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
-          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
-        </div>
-        <h3>Power Washing</h3>
-        <p>Professional power washing services to make your surfaces spotless.</p>
-      </div>
-      <div class="service-card">
-        <div class="carousel-container">
-          <div class="carousel-images">
-            <img src="images/image1.jpeg" alt="Bricklaying 1">
-            <img src="images/image2.jpeg" alt="Bricklaying 2">
-            <img src="images/image3.jpeg" alt="Bricklaying 3">
-            <img src="images/image4.jpeg" alt="Bricklaying 4">
-            <img src="images/image5.jpeg" alt="Bricklaying 5">
+            <img src="images/image8.jpeg" alt="Bricklaying 1">
+            <img src="images/image9.jpeg" alt="Bricklaying 2">
+            <img src="images/image10.jpeg" alt="Bricklaying 3">
           </div>
           <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
           <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
@@ -126,8 +144,8 @@
       <div class="service-card">
         <div class="carousel-container">
           <div class="carousel-images">
-            <img src="images/image1.jpeg" alt="Decking 1">
-            <img src="images/image2.jpeg" alt="Decking 2">
+            <img src="images/image6.jpeg" alt="Decking 1">
+            <img src="images/image7.jpeg" alt="Decking 2">
             <img src="images/image3.jpeg" alt="Decking 3">
             <img src="images/image4.jpeg" alt="Decking 4">
             <img src="images/image5.jpeg" alt="Decking 5">
@@ -138,21 +156,7 @@
         <h3>Decking</h3>
         <p>Beautiful and functional decking solutions for your outdoor space.</p>
       </div>
-      <div class="service-card">
-        <div class="carousel-container">
-          <div class="carousel-images">
-            <img src="images/image1.jpeg" alt="Deck and Patio 1">
-            <img src="images/image2.jpeg" alt="Deck and Patio 2">
-            <img src="images/image3.jpeg" alt="Deck and Patio 3">
-            <img src="images/image4.jpeg" alt="Deck and Patio 4">
-            <img src="images/image5.jpeg" alt="Deck and Patio 5">
-          </div>
-          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
-          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
-        </div>
-        <h3>Deck and Patio</h3>
-        <p>Comprehensive deck and patio services to enhance your home's exterior.</p>
-      </div>
+      <!--
       <div class="service-card">
         <div class="carousel-container">
           <div class="carousel-images">
@@ -183,37 +187,7 @@
         <h3>Fences</h3>
         <p>High-quality fencing services for privacy and security.</p>
       </div>
-      <div class="service-card">
-        <div class="carousel-container">
-          <div class="carousel-images">
-            <img src="images/image1.jpeg" alt="Fence Repair 1">
-            <img src="images/image2.jpeg" alt="Fence Repair 2">
-            <img src="images/image3.jpeg" alt="Fence Repair 3">
-            <img src="images/image4.jpeg" alt="Fence Repair 4">
-            <img src="images/image5.jpeg" alt="Fence Repair 5">
-          </div>
-          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
-          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
-        </div>
-        <h3>Fence Repair</h3>
-        <p>Professional fence repair services to restore your fences to their best condition.</p>
-      </div>
-      <div class="service-card">
-        <div class="carousel-container">
-          <div class="carousel-images">
-            <img src="images/image1.jpeg" alt="Landscape Installation 1">
-            <img src="images/image2.jpeg" alt="Landscape Installation 2">
-            <img src="images/image3.jpeg" alt="Landscape Installation 3">
-            <img src="images/image4.jpeg" alt="Landscape Installation 4">
-            <img src="images/image5.jpeg" alt="Landscape Installation 5">
-          </div>
-          <button class="carousel-button prev" onclick="prevSlide(this)">&#10094;</button>
-          <button class="carousel-button next" onclick="nextSlide(this)">&#10095;</button>
-        </div>
-        <h3>Landscape Installation</h3>
-        <p>Complete landscape installation services to transform your outdoor space.</p>
-      </div>
-    </div>
+    -->
   </section>
 
   <!-- Footer -->
@@ -228,9 +202,9 @@
       <div class="flex justify-center space-x-4 mt-4">
         <a href="https://www.facebook.com/eastern.blue.bird.llc" target="_blank" class="hover:text-blue-400">Facebook</a>
         <span>|</span>
-        <span>Phone: (123) 456-7890</span>
+        <span>Phone: (443) 876-6153</span>
         <span>|</span>
-        <span>Email: contact@easternbluebirdllc.com</span>
+        <span>Email: leoneltinoco.lt@gmail.com</span>
       </div>
     </div>
   </footer>
